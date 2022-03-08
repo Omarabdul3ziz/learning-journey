@@ -449,3 +449,140 @@ ACCESS-MODIFIER fn FUNCTION_NAME(ARGUMENT1_NAME ARGUMENT1_ DATATYPE, ARGUMENT2_N
       println(res)
     }
     ```
+
+## Chapter 8: Structs
+
+struct is a schema for defining a type, it has no values just the types of the elements it contains
+
+- Define
+  ```v
+  struct Note {
+    id int
+    content string
+  }
+  ```
+- Init
+
+  ```v
+  note := Note {
+    id: 12
+    content: "Hi"
+  }
+  ```
+
+- Access: with the `.` notation
+- Structs stored in Stack by default to store in Heap use the `&` like `note := &Note{}`
+  Heap structs are particularly useful when dealing with structs that carry large amounts of data. Therefore, opting for heap structs can reduce explicit memory allocations.
+- struct fields are immutable by default To update a field of a struct, it is necessary that both the field and the variable to which the struct is initialized are mutable
+- Access control for struct fields
+  | Access modifier | within module | outside module |
+  |---|---|---|
+  | pub | public | public |
+  | mut | mutable | immutable |
+  | pub mut | public, mutable | public, immutable |
+  | \_global | public, mutable | public, mutable |
+- Special fields
+
+  - required
+  - default values
+
+  ```v
+  import time
+  pub struct Note {
+  pub:
+    id      int
+    created time.Time = time.now()
+  pub mut:
+    message string    [required]
+    status  bool
+    due     time.Time = time.now().add_days(1)
+  }
+  ```
+
+- Struct contains another struct (AKA: Inheritance)
+
+  All you need to do is define a struct and ad it as the first field in the child struct
+
+  ```v
+
+  import time
+
+  struct DateInfo {
+  created time.Time
+  }
+
+  struct Note {
+  DateInfo
+
+      id int
+
+      mut:
+        content string
+
+  }
+
+  note := Note{
+  created: time.now()
+  id: 01
+  content: 'hello'
+  }
+  ```
+
+- Defining methods for a struct
+  - Receiver
+    V allows us to define methods for a struct. A method is a function with a special receiver argument that appears between fn and the method name
+    ```v
+    fn (r RECEIVER_TYPE) METHOD_NAME(OPTIONAL_INPUT_ARGUMENTS) RETURN_TYPE {
+      METHOD BODY
+    }
+    ```
+  - Argument and return pointer
+    ```v
+    fn postpone(n Note) &Note {
+      return &Note {
+        NoteTimeInfo: NoteTimeInfo{
+          due: n.due.add_days(1)
+        }
+        id: n.id
+        message: n.message
+      }
+    }
+    ```
+
+## Chapter 9: modules
+
+Modular programming pattern help you to organize and separate related functionalities of your code. and module is just a fancy way to say file or dir of files combined to each others. You can start by define `module mod` and import `import mod` then access public members by `module.member` notation
+
+- Rules to deal with modules:
+
+  - create new project `v new proj`
+  - to run a project with all the modules inside use `v run .`
+  - the main module has file name of the project, placed in the root dir and began with `module main`
+  - create new module by creating file `mod1/file1.v` starts with `module mod1` then import on the main module by just `import mod1`
+  - Imported modules must be consumed in the code
+  - By default, V assumes that a module will be the main module for the files that do not have a module definition
+  - Multiple V files in the module (same dir) must define the same module
+  - The default scope for members of a module is private so you can only access the public members in the different modules but Both private and public members of a module are accessible from anywhere within the module
+  - Cyclic imports are not allowed for a god reason (m2 imports m1 which also import m2 that import m1 which...)
+  - Define init functions to execute one-time module-level initializer functionality. is automatically executed when you import the module where it is defined (like a constructor for the class)
+    - The init function must only be defined once inside the module.
+    - not be marked as public.
+    - not accept any input arguments.
+    - not have a return type.
+
+- Module types
+
+  - defined: discussed
+  - built-in: `import time`
+  - package: just a module publish by other coder. will follow the same usage as a module.
+    - `v install [module]`: for modules in the public library of V and `v install --git [url]`: for github repos.
+
+## Q&A?
+
+- Enum vs Struct vs Class
+  struct can contain data variables, types and methods. Enum can only contain data types.
+  struct supports access specifier. Enum does not.
+  Enum is just a collection of symbols like an array.
+  but struct and class is almost the same with some differences.
+- Struct as receiver vs argument
+  The receiver is just a special case of a argument. V/Go provides syntactic sugar to attach methods to types by declaring the first parameter as a receiver.
