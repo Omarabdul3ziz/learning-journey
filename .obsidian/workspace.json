@@ -1,0 +1,155 @@
+{
+  "main": {
+    "id": "99b5d00958ec1742",
+    "type": "split",
+    "children": [
+      {
+        "id": "361fca8021e3609a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "05c43017825ad108",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/Resources.md.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "18411f1535d1a4e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "b7a01f659203725b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7a8d656c77d0b53",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cd4557ed4a9548f5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cb080c129c1ddc93",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "97a97e9345bb2d6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "2caa43b7110b2ea3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "79f3ce3c0691e3fc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Golang/Resources.md.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2a80986c0781610b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Golang/Resources.md.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8950fa5784ec0789",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "9d19eb5576f5ebdd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Golang/Resources.md.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "05c43017825ad108",
+  "lastOpenFiles": [
+    "README.md",
+    "vue/INFO.md",
+    "Golang/Resources.md.md"
+  ]
+}
